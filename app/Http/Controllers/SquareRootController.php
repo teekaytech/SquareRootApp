@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class SquareRootController extends Controller
 {
@@ -13,8 +14,10 @@ class SquareRootController extends Controller
      */
     public function index(Request $request)
     {
-        $val = $request->input('input');
-        if(is_int(intval($val))) { return response(sqrt($val), 200); }
-        else { return response('Invalid tata type', 401); }
+        $validator = Validator::make($request->all(), ['input' => 'required|numeric']);
+
+        if ($validator->fails()) { return response('Invalid tata type', 401); }
+
+        return response(sqrt($request->input('input')), 200);
     }
 }
