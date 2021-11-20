@@ -17,7 +17,7 @@
 ~CURL
 
 ```cURL
-curl --location --request POST 'https://secure-headland-53675.herokuapp.com//api/square_root' \
+curl --location --request POST 'https://secure-headland-53675.herokuapp.com/api/square_root' \
 --form 'input="36"'
 ```
 
