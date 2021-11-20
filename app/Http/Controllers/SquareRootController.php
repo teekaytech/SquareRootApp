@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 class SquareRootController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Gets input and calculates it square root.
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
-        $this->validate($request, ['input' => 'required', 'integer']);
-        return sqrt($request->input('input'));
+        $val = $request->input('input');
+        if(is_int(intval($val))) { return response(sqrt($val), 200); }
+        else { return response('Invalid tata type', 401); }
     }
 }
