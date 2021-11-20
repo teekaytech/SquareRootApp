@@ -17,7 +17,7 @@
 ~CURL
 
 ```cURL
-curl --location --request POST 'http://127.0.0.1:8001/api/square_root' \
+curl --location --request POST 'https://secure-headland-53675.herokuapp.com//api/square_root' \
 --form 'input="36"'
 ```
 
@@ -33,7 +33,7 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("http://127.0.0.1:8001/api/square_root", requestOptions)
+fetch("https://secure-headland-53675.herokuapp.com/api/square_root", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
